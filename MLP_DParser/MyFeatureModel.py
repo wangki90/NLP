@@ -12,15 +12,15 @@ class FeatureModel:
         self.mor_size = 0 #형태소 개수
         self.pos_map = {}
         self.pos_size = 0
-        self.window_size = 3 # window size
-        self.max_length = self.window_size * 4 # buffer, stack, 2개 어절, 2개 POS
+        self.window_size = 3 # window size  Top 3
+        self.max_length = self.window_size * 4 # buffer, stack Top3 2개 어절, 2개 POS
         self.feature_size = 0 # feature 개수
 
         # hand crafted feature 초기화
         self.hc_feature_map = {} # dic
         self.hc_feature_size = 0
 
-        # empty를 위한 더미 쌓기 -> 그냥 더미값 넣어주는거임
+        # empty를 위한 더미 쌓기
         self.empty_dummy = dp.Morpheme() #Morpheme
         self.empty_dummy.lex = '$empty' #lexical = empty
         self.empty_dummy.pos = '$empty' #pos = $empty
@@ -53,9 +53,9 @@ class FeatureModel:
     def get_feature_size(self):
         size = 0
         #morph 입력
-        size += self.mor_size * 2 # mor/mor 2개씩 있으니까?
+        size += self.mor_size * 2 # mor/mor 2개씩 있으니까
         #pos 입력
-        size += self.pos_size * 2 # pos/pos 2개씩 있으니까?
+        size += self.pos_size * 2 # pos/pos 2개씩 있으니까
         #hc
         size += self.hc_feature_size
 
