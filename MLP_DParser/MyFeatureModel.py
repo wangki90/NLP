@@ -157,8 +157,8 @@ class FeatureModel:
             idx_mor3 = self.get_mor_feature_idx(mor_list[-1].lex + '/' + mor_list[-1].pos, mode) # 맨 뒤 형태소, ./JX 의 인덱스 번호
 
             idx_pos0 = self.get_pos_featrue_idx(mor_list[0], mode)
-            idx_pos1 = self.get_pos_featrue_idx(self.empty_dummy, mode)
-            idx_pos2 = self.get_pos_featrue_idx(self.empty_dummy, mode)
+            idx_pos1 = self.get_pos_featrue_idx(self.empty_dummy.pos, mode)
+            idx_pos2 = self.get_pos_featrue_idx(self.empty_dummy.pos, mode)
             idx_pos3 = self.get_pos_featrue_idx(mor_list[-1], mode)
 
             if len(mor_list) >= 2:  # 저장된게 2개 이상일 경우,
